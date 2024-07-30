@@ -1,34 +1,85 @@
-import React from 'react';
-import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page } from '@syncfusion/ej2-react-grids';
+import React, { useState } from "react";
+import "./family.css";
+import { useFamilyContext } from './FamilyContext';
 
-import { employeesData, employeesGrid } from '../data/dummy';
-import { Header } from '../components';
+const Comparision = () => {
+  
+  // const { addFamilyMember } = useFamilyContext();
 
-const Employees = () => {
-  const toolbarOptions = ['Search'];
+  const [familyMember, setFamilyMember] = useState({
+    invested_year: "",
+    future_year: "",
+    Commodity: "",
+  });
 
-  const editing = { allowDeleting: true, allowEditing: true };
+  const [familyMembers, setFamilyMembers] = useState([]);
+
+  const handleChange = (e) => {
+    const { invested_year, value } = e.target;
+    setFamilyMember((prevState) => ({
+      ...prevState,
+      [invested_year]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // addFamilyMember(familyMember);
+    setFamilyMembers([...familyMembers, familyMember]);
+    setFamilyMember({
+      invested_year: "",
+      Commodity: "",
+    });
+  };
+
+  const handleDelete = (index) => {
+    const updatedFamilyMembers = familyMembers.filter((_, i) => i !== index);
+    setFamilyMembers(updatedFamilyMembers);
+  };
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Employees" />
-      <GridComponent
-        dataSource={employeesData}
-        width="auto"
-        allowPaging
-        allowSorting
-        pageSettings={{ pageCount: 5 }}
-        editSettings={editing}
-        toolbar={toolbarOptions}
-      >
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
-        </ColumnsDirective>
-        <Inject services={[Search, Page]} />
+    <div className="container">
+      <h2>Comparision</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>invested_year:</label>
+          <input
+            type="text"
+            name="invested_year"
+            value={familyMember.invested_year}
+            onChange={handleChange}
+          />
+        </div>
 
-      </GridComponent>
+        <div>
+          <label>Commodity:</label>
+          <select
+            name="gender"
+            value={familyMember.Commodity}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="male">Gold</option>
+            <option value="female">Real_estate</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <button type="submit">Compare</button>
+      </form>
+
+      <div className="family-members">
+        <h3>Graph:</h3>
+        {familyMembers.map((member, index) => (
+          <div key={index} className="family-member">
+            <p>invested_year: {member.invested_year}</p>
+            <p>Commodity: {member.commodity}</p>
+            <button onClick={() => handleDelete(index)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
-export default Employees;
+
+export default Comparision;
