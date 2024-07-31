@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./family.css";
 import { useFamilyContext } from './FamilyContext';
 
+import graph from "../data/Screenshot.jpg"
+
 const Comparision = () => {
   
   // const { addFamilyMember } = useFamilyContext();
@@ -12,13 +14,21 @@ const Comparision = () => {
     Commodity: "",
   });
 
+  const [showImage, setShowImage] = useState(false);
+
+  const handleClick = () => {
+    setShowImage(!showImage);
+  };
+
+
+
   const [familyMembers, setFamilyMembers] = useState([]);
 
   const handleChange = (e) => {
-    const { invested_year, value } = e.target;
+    const { name, value } = e.target;
     setFamilyMember((prevState) => ({
       ...prevState,
-      [invested_year]: value,
+      [name]: value,
     }));
   };
 
@@ -44,7 +54,7 @@ const Comparision = () => {
         <div>
           <label>invested_year:</label>
           <input
-            type="text"
+            type="number"
             name="invested_year"
             value={familyMember.invested_year}
             onChange={handleChange}
@@ -54,14 +64,14 @@ const Comparision = () => {
         <div>
           <label>Commodity:</label>
           <select
-            name="gender"
+            name="commodity"
             value={familyMember.Commodity}
             onChange={handleChange}
           >
             <option value="">Select</option>
-            <option value="male">Gold</option>
-            <option value="female">Real_estate</option>
-            <option value="other">Other</option>
+            <option value="Gold">Gold</option>
+            <option value="Real_estate">Real_estate</option>
+           
           </select>
         </div>
         
@@ -74,7 +84,11 @@ const Comparision = () => {
           <div key={index} className="family-member">
             <p>invested_year: {member.invested_year}</p>
             <p>Commodity: {member.commodity}</p>
-            <button onClick={() => handleDelete(index)}>Delete</button>
+            <button onClick={handleClick}>
+        {showImage ? 'Hide Image' : 'Show Image'}
+      </button>
+      <button onClick={() => handleDelete(index)}>Delete</button>
+      {showImage && <img src={graph} alt="Placeholder" />}
           </div>
         ))}
       </div>
