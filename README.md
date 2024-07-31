@@ -1,4 +1,4 @@
-# FISCAL (Financial Investment and Savings Companion Advisory Logic)
+# FISCAL (Family Investment and Savings Companion Advisory Logic)
 
 Welcome to the Family Financial Planning Platform! Our platform revolutionizes how Indian families perceive and interact with capital markets. By leveraging family financial planning, we guide retail investors through a personalized journey tailored to their unique life goals and financial situations.
 
@@ -55,7 +55,7 @@ npm start
 
 Team: **WeAreGroot**
 
-1. *Armanjeet Bhular*
-2. *Gurkamal Brar*
-3. *Shaifali Thakur*
-4. *Gyan Singh*
+1. _Armanjeet Bhular_
+2. _Gurkamal Brar_
+3. _Shaifali Thakur_
+4. _Gyan Singh_
