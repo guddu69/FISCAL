@@ -41,7 +41,8 @@ Our solution aims to democratize access to the capital markets, fostering greate
 
 ## Getting Started
 
-```git clone https://github.com/guddu69/FISCAL.git
+```
+git clone https://github.com/guddu69/FISCAL.git
 cd FISCAL
 ```
 
