@@ -41,8 +41,9 @@ Our solution aims to democratize access to the capital markets, fostering greate
 
 ## Getting Started
 
-`git clone https://github.com/guddu69/FISCAL.git`
-`cd FISCAL`
+```git clone https://github.com/guddu69/FISCAL.git
+cd FISCAL
+```
 
 ```
 npm install
@@ -51,9 +52,9 @@ npm start
 
 ## Contributers
 
-**Team: WeAreGroot**
+Team: **WeAreGroot**
 
-Armanjeet Bhular
-Gurkamal Brar
-Shaifali Thakur
-Gyan Singh
+1. *Armanjeet Bhular*
+2. *Gurkamal Brar*
+3. *Shaifali Thakur*
+4. *Gyan Singh*
