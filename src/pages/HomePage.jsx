@@ -134,7 +134,6 @@ const HomePage = () => {
       </form>
 
       <div className="family-members">
-        <h3>Family Members:</h3>
 
         {familyMembers.map((member, index) => (
           <div key={index} className="family-member">

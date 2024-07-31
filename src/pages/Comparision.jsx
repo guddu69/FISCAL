@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./family.css";
-import { useFamilyContext } from './FamilyContext';
 
 import graph from "../data/Screenshot.jpg"
 
 const Comparision = () => {
-  
-  // const { addFamilyMember } = useFamilyContext();
 
   const [familyMember, setFamilyMember] = useState({
     invested_year: "",
@@ -20,8 +17,6 @@ const Comparision = () => {
     setShowImage(!showImage);
   };
 
-
-
   const [familyMembers, setFamilyMembers] = useState([]);
 
   const handleChange = (e) => {
@@ -34,7 +29,6 @@ const Comparision = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // addFamilyMember(familyMember);
     setFamilyMembers([...familyMembers, familyMember]);
     setFamilyMember({
       invested_year: "",
@@ -49,10 +43,12 @@ const Comparision = () => {
 
   return (
     <div className="container">
-      <h2>Comparision</h2>
+      <h1>Comparision</h1>
+      <p>Compare your gold/real estate returns with mutual Funds</p>
+
       <form onSubmit={handleSubmit}>
         <div>
-          <label>invested_year:</label>
+          <label>Year of Investement:</label>
           <input
             type="number"
             name="invested_year"
@@ -70,7 +66,7 @@ const Comparision = () => {
           >
             <option value="">Select</option>
             <option value="Gold">Gold</option>
-            <option value="Real_estate">Real_estate</option>
+            <option value="Real_estate">Real estate</option>
            
           </select>
         </div>
@@ -79,13 +75,12 @@ const Comparision = () => {
       </form>
 
       <div className="family-members">
-        <h3>Graph:</h3>
         {familyMembers.map((member, index) => (
           <div key={index} className="family-member">
-            <p>invested_year: {member.invested_year}</p>
+            <p>Year of Investment: {member.invested_year}</p>
             <p>Commodity: {member.commodity}</p>
             <button onClick={handleClick}>
-        {showImage ? 'Hide Image' : 'Show Image'}
+        {showImage ? 'Hide Graph' : 'Show Graph'}
       </button>
       <button onClick={() => handleDelete(index)}>Delete</button>
       {showImage && <img src={graph} alt="Placeholder" />}

@@ -1,38 +1,27 @@
-/* Information.css */
-
 .information-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-  }
-  
-  .content-section, .data-section {
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 25px;
-    color: #c30909;
-  }
-  
-  p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  .data-section h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #007bff;
-  }
-  
-  .data-section p {
-    margin: 5px 0;
-  }
-  
+  padding: 20px;
+}
+
+.content-section h2 {
+  cursor: pointer;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+}
+
+.content-section h1 {
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.dropdown-content {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
