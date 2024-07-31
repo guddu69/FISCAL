@@ -480,6 +480,22 @@ export const links = [
   },
 ];
 
+export const fundData = [
+  {
+    mutualFund: 'Axis mf',
+    percentage: 8,
+  },
+  { 
+    mutualFund: 'Canara Robeco MF',
+    percentage: 9,
+  }
+  ,
+  {
+    mutualFund: 'ICICI Prudential Bluechip Fund',
+    percentage: 13,
+  }
+];
+
 export const cartData = [
   {
     image:

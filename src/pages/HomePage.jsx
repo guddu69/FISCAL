@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./family.css";
-import { useFamilyContext } from './FamilyContext';
+import { fundData } from "../data/dummy";
 
 const HomePage = () => {
-  
   // const { addFamilyMember } = useFamilyContext();
 
   const [familyMember, setFamilyMember] = useState({
@@ -12,9 +11,12 @@ const HomePage = () => {
     relation: "",
     gender: "",
     yearlyIncome: "",
-    moneyNeeded: "",
-    year: "",
+    moneyNeeded: null,
+    year: null,
     cause: "",
+
+    totalReturn: "",
+    investedMoney: null,
   });
 
   const [familyMembers, setFamilyMembers] = useState([]);
@@ -133,6 +135,7 @@ const HomePage = () => {
 
       <div className="family-members">
         <h3>Family Members:</h3>
+
         {familyMembers.map((member, index) => (
           <div key={index} className="family-member">
             <p>Name: {member.name}</p>
@@ -144,6 +147,15 @@ const HomePage = () => {
             <p>Year: {member.year}</p>
             <p>Cause: {member.cause}</p>
             <button onClick={() => handleDelete(index)}>Delete</button>
+
+            {fundData?.map((item, index) => (
+              <div key={index}>
+                <h2>Mutual Fund: {item.mutualFund}</h2>
+                <p>Percentage return given (aprox): {item.percentage}%</p>
+                <p>You need to invest : {(member.moneyNeeded)*( 100/(100+item.percentage)   )^(member.year-2024)}₹ now </p>
+                <p>Total Return in {member.year} are : {member.moneyNeeded} ₹</p>
+              </div>
+            ))}
           </div>
         ))}
       </div>
