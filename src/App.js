@@ -6,7 +6,6 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
   HomePage,
-  Family,
   Comparision,
   Information,
 } from "./pages";
@@ -78,7 +77,6 @@ const App = () => {
                 <Route path="/homepage" element={<HomePage />} />
 
                 {/* pages  */}
-                <Route path="/family" element={<Family />} />
                 <Route path="/comparision" element={<Comparision />} />
                 <Route path="/information" element={<Information />} />
               </Routes>

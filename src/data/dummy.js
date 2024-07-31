@@ -469,10 +469,6 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'family',
-        icon: <IoMdContacts />,
-      },
-      {
         name: 'comparision',
         icon: <AiOutlineShoppingCart />,
       },
